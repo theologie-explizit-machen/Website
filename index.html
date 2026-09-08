@@ -31,19 +31,19 @@ header > *:not(.watermark) { position:relative; z-index:1; }
 .photo { margin:0; }
 .photo img { display:block; width:100%; height:auto; aspect-ratio:16/7;
   object-fit:cover; background:#EFEDE7; }
-.photo.tall img { aspect-ratio:3/2; }
+.photo.tall img { aspect-ratio:16/9; }
 .photo.band img { aspect-ratio:16/6; }
 .photo figcaption { margin-top:0.7rem; font-size:0.9rem; color:var(--muted); }
 
-/* Tafel: volle Spaltenbreite, viel Luft */
-.photo-plate { margin:7rem 0; }
-
-/* Band: randlos ueber die ganze Fensterbreite */
-.photo-bleed { width:100vw; margin:7rem 0 7rem calc(50% - 50vw); }
+/* Randlos ueber die ganze Fensterbreite */
+.photo-bleed { width:100vw; margin-left:calc(50% - 50vw); margin-right:0; }
 .photo-bleed figcaption { max-width:58rem; margin-left:auto; margin-right:auto; padding:0 1.5rem; }
 
-/* im Abschnitt mitlaufend */
-.photo-inline { margin:0 0 2rem; }
+/* Zaesur zwischen zwei Abschnitten */
+.photo-break { margin-top:7rem; margin-bottom:7rem; }
+
+/* innerhalb eines Abschnitts, unter der Ueberschrift */
+.photo-inline { margin-top:2.5rem; margin-bottom:3rem; }
 .mark { width:100%; max-width:26rem; height:auto; display:block; }
 .subtitle { margin:1.75rem 0 0; font-size:1.25rem; font-style:italic; color:var(--muted); max-width:var(--measure); }
 .when { margin:1.5rem 0 0; font-size:1.05rem; }
@@ -111,8 +111,7 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
   .time { padding-top:0; margin-bottom:0.3rem; }
   .facts dt { margin-bottom:0.2rem; }
   .nav ul { gap:0.5rem 1.5rem; }
-  .photo-plate { margin:4rem 0; }
-  .photo-bleed { margin-top:4rem; margin-bottom:4rem; }
+  .photo-break { margin-top:4rem; margin-bottom:4rem; }
 }
 @media print {
   .page { max-width:none; padding:0; }
@@ -120,8 +119,8 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
   .photo { break-inside:avoid; }
   .nav { display:none; }
   .slot, .talk { break-inside:avoid; }
-  .photo-bleed { width:auto; margin:2rem 0; }
-  .photo-plate { margin:2rem 0; }
+  .photo-bleed { width:auto; margin-left:0; }
+  .photo-break, .photo-inline { margin:2rem 0; }
   .todo { background:none; }
 }
 </style>
@@ -161,9 +160,9 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
     </section>
 
 
-    <figure class="photo photo-plate tall">
+    <figure class="photo photo-bleed photo-break tall">
       <img src="bilder/glasdach.jpg" alt="Rundes Bleiglasfenster mit Taubenmotiv in einem gläsernen Oberlicht, von unten fotografiert" width="1800" height="1242">
-      <figcaption>Glasfenster im Hochschulgebäude. © Raphael Erdle 2025</figcaption>
+      <figcaption>Das Glasfenster im Oberlicht der Hochschule. © Raphael Erdle 2025</figcaption>
     </figure>
 
     <section class="block" id="programm">
@@ -307,7 +306,7 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
     </section>
 
 
-    <figure class="photo photo-bleed band">
+    <figure class="photo photo-bleed photo-break band">
       <img src="bilder/campus.jpg" alt="Ein von wildem Wein überwachsenes Gebäude mit Gitterfassade auf dem Campus" width="1800" height="1200">
       <figcaption>Auf dem Campus in Frankfurt-Sachsenhausen. © Raphael Erdle 2025</figcaption>
     </figure>
@@ -324,9 +323,9 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
 
     <section class="block" id="anreise">
       <h2>Anreise und Übernachtung</h2>
-      <figure class="photo photo-inline">
+      <figure class="photo photo-bleed photo-inline band">
         <img src="bilder/luftbild.jpg" alt="Luftbild des Campus mit Hochschulgebäude, Bibliothek und Park am Stadtwaldrand" width="1800" height="787">
-        <figcaption>Der Campus von oben. Wir tagen im Gebäude rechts. © Rhein-Main-Airpictures 2021</figcaption>
+        <figcaption>Der Campus von oben. Rechts die Bibliothek mit dem runden Oberlicht. © Rhein-Main-Airpictures 2021</figcaption>
       </figure>
       <dl class="facts">
         <div>
@@ -381,9 +380,4 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
     <img class="hs-logo" src="sankt-georgen-logo.png" alt="Philosophisch-Theologische Hochschule Sankt Georgen" width="660" height="242">
     <p>Eine Tagung des akademischen Mittelbaus der Philosophisch-Theologischen Hochschule Sankt Georgen, Frankfurt am Main.</p>
     <p>Kontakt: <a href="mailto:lipinski@sankt-georgen.de">lipinski@sankt-georgen.de</a></p>
-    <p><span class="todo">Impressum und Datenschutzerklärung ergänzen, sobald die Domain steht.</span></p>
-  </footer>
-
-</div>
-</body>
-</html>
+    <p><span class="todo">Impressum und Datenschutz
