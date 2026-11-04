@@ -118,11 +118,17 @@ header > *:not(.watermark) { position:relative; z-index:1; }
 .form-status.err { color:var(--red); }
 
 /* Foerderer */
-.sponsors { list-style:none; margin:2.5rem 0 0; padding:0; max-width:var(--measure); }
-.sponsors li { padding:1.75rem 0; /* >= Schutzzone der Hessenmarke */ border-top:1px solid var(--rule); }
-.sponsors img { display:block; height:100px; width:auto; max-width:100%; object-fit:contain; object-position:left center; }
-.sponsors .name { margin:0; font-size:1.2rem; font-weight:500; }
-.sponsors .note { margin:0.6rem 0 0; color:var(--muted); font-size:0.95rem; }
+.sponsors { list-style:none; margin:2.5rem 0 0; padding:1.75rem 0 0; /* >= Schutzzone der Hessenmarke */
+  border-top:1px solid var(--rule); display:flex; flex-wrap:wrap; gap:2rem 2.5rem; }
+.sponsors li { display:flex; flex-direction:column; flex:0 0 auto; }
+.sponsors .logo { height:100px; display:flex; align-items:center; }
+.sponsors .logo a { display:block; }
+.sponsors img { display:block; width:auto; max-width:100%; }
+.sponsors .hmwk { height:100px; } /* Mindestgroesse laut CD-Manual: 100 px */
+.sponsors .et { height:64px; }
+.sponsors .sg { height:72px; }
+/* Bildunterschrift so breit wie das Logo, nicht breiter */
+.sponsors .note { width:0; min-width:100%; margin:0.9rem 0 0; color:var(--muted); font-size:0.9rem; line-height:1.45; }
 
 .legal { margin-top:1.2rem; }
 .legal a { color:var(--muted); }
@@ -141,7 +147,9 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
   .facts dt { margin-bottom:0.2rem; }
   .nav ul { gap:0.5rem 1.5rem; }
   .photo-break { margin-top:4rem; margin-bottom:4rem; }
-  .sponsors img { height:auto; max-height:100px; }
+  .sponsors { flex-direction:column; }
+  .sponsors .logo { height:auto; }
+  .sponsors .hmwk { height:auto; width:354px; max-width:100%; }
 }
 @media print {
   .page { max-width:none; padding:0; }
@@ -351,9 +359,8 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
         <p><span class="todo">Falls ein Teilnahmebeitrag erhoben wird, gehört er hierher.</span></p>
       </div>
 
-      <!-- Formular-Endpunkt: Formspree. "DEINE-FORM-ID" durch die ID aus dem Formspree-Konto ersetzen
-           (Konto mit lipinski@sankt-georgen.de anlegen, Formular anlegen, ID steht in der Endpunkt-URL). -->
-      <form class="form" id="anmeldeformular" action="https://formspree.io/f/DEINE-FORM-ID" method="POST">
+      <!-- Formular-Endpunkt: Formspree (Konto lipinski@sankt-georgen.de, Formular "Theologie explizit machen"). -->
+      <form class="form" id="anmeldeformular" action="https://formspree.io/f/mjyylyoz" method="POST">
         <input type="hidden" name="_subject" value="Anmeldung: Theologie explizit machen! 2027">
         <div class="field">
           <label for="f-name">Name</label>
@@ -437,18 +444,19 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
     <section class="block" id="foerderung">
       <h2>Förderung</h2>
       <div class="prose">
-        <p>Wir danken unseren Förderern herzlich. Ihre Unterstützung macht diese Tagung möglich.</p>
+        <p>Wir danken unseren Förderern sehr herzlich, ohne die diese Tagung nicht möglich wäre!</p>
       </div>
       <ul class="sponsors">
         <li>
-          <img src="foerderer/hmwk.svg" alt="Hessisches Ministerium für Wissenschaft und Forschung, Kunst und Kultur" width="1006" height="284">
+          <div class="logo"><img class="hmwk" src="foerderer/hmwk.svg" alt="Hessisches Ministerium für Wissenschaft und Forschung, Kunst und Kultur" width="1006" height="284"></div>
         </li>
         <li>
-          <a href="https://eurotheo.eu" aria-label="Europäische Gesellschaft für Katholische Theologie (eurotheo.eu)"><img src="foerderer/et.png" alt="ET – Theologians together in Europe" width="531" height="145"></a>
+          <div class="logo"><a href="https://eurotheo.eu" aria-label="Europäische Gesellschaft für Katholische Theologie (eurotheo.eu)"><img class="et" src="foerderer/et.png" alt="ET – Theologians together in Europe" width="531" height="145"></a></div>
           <p class="note">Europäische Gesellschaft für Katholische Theologie, Deutsche Sektion · <a href="https://eurotheo.eu">eurotheo.eu</a></p>
         </li>
         <li>
-          <p class="name">Freundeskreis Sankt Georgen e.&nbsp;V.</p>
+          <div class="logo"><img class="sg" src="foerderer/sankt-georgen.png" alt="Philosophisch-Theologische Hochschule Sankt Georgen" width="660" height="242"></div>
+          <p class="note">Freundeskreis Sankt&nbsp;Georgen&nbsp;e.&nbsp;V.</p>
         </li>
       </ul>
     </section>
