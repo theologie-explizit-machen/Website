@@ -353,13 +353,14 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
     <section class="block" id="anmeldung">
       <h2>Anmeldung</h2>
       <div class="prose">
-        <p>Solltet ihr als Zuhörer:in dabei sein wollen, meldet euch bitte bis zum 15. Februar 2027 mit dem Formular unten an.</p>
-        <p>Am Abend des 8. März essen alle Speaker:innen gemeinsam in Sankt Georgen. Kommt gern dazu; das Abendessen erfolgt für Nicht-Speaker:innen auf Selbstzahlerbasis. Solltet ihr beim Abendessen dabei sein wollen, gebt dies bitte unten verbindlich an, damit wir wissen, wie viele Plätze wir brauchen.</p>
+        <p>Ihr müsst keinen eigenen Beitrag mitbringen, um dabei zu sein. Meldet euch bitte bis zum 15. Februar 2027 mit dem Formular unten an.</p>
+        <p>Am Abend des 8. März essen die Beitragenden gemeinsam in Sankt Georgen. Kommt gern dazu; das Abendessen erfolgt auf Selbstzahlerbasis. Kreuzt es unten an, damit wir wissen, wie viele Plätze wir brauchen.</p>
         <p>Eure Angaben verwenden wir ausschließlich für die Planung der Tagung. Näheres in den <a href="datenschutz.html">Datenschutzhinweisen</a>.</p>
+        <p><span class="todo">Falls ein Teilnahmebeitrag erhoben wird, gehört er hierher.</span></p>
       </div>
 
-      <!-- Formular-Endpunkt: Formspree (Konto lipinski@sankt-georgen.de, Formular "Theologie explizit machen"). -->
-      <form class="form" id="anmeldeformular" action="https://formspree.io/f/mjyylyoz" method="POST">
+      <!-- Formular-Endpunkt: Formward (EU, Konto lipinski@sankt-georgen.de). -->
+      <form class="form" id="anmeldeformular" action="https://forms.formward.eu/f/005d61df-39bf-4d3c-a679-2e3a55d37196" method="POST">
         <input type="hidden" name="_subject" value="Anmeldung: Theologie explizit machen! 2027">
         <div class="field">
           <label for="f-name">Name</label>
@@ -387,7 +388,7 @@ footer p { margin:0 0 0.4rem; max-width:var(--measure); }
         </label>
         <label class="check">
           <input type="checkbox" name="Datenschutz" value="akzeptiert" required>
-          <span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzhinweise</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Organisation der Tagung einverstanden.</span>
+          <span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzhinweise</a> zur Kenntnis genommen.</span>
         </label>
         <button type="submit">Anmelden</button>
         <p class="form-status" role="status" aria-live="polite"></p>
